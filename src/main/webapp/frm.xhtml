@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+    template="/WEB-INF/templates/default.xhtml">
+    <ui:define name="content">
+		<h:form id="form">
+			<p:panel header="Lançamento">
+				<p:panelGrid columns="2">
+					<p:outputLabel for="calVencimento" value="Vencimento"/>
+					<p:calendar id="calVencimento" size="12" pattern="dd/MM/yyyy" value="#{lancamentoController.lancamento.vencimento}"/>
+					
+					<p:outputLabel for="txtDescricao" value="Descrição"/>
+					<p:inputText id="txtDescricao" value="#{lancamentoController.lancamento.descricao}"/>
+					
+					<p:outputLabel for="txtValor" value="Valor"/>
+					<p:inputText id="txtValor" value="#{lancamentoController.lancamento.valor}"/>
+					
+					<f:facet name="footer">
+						<h:commandButton id="btnSalvar" value="Salvar" action="#{lancamentoController.salvar}"/>
+						<h:commandButton id="btnCancelar" value="Cancelar" action="#{lancamentoController.cancelar}"/>
+					</f:facet>					
+				</p:panelGrid>
+			</p:panel>
+		</h:form>
+    </ui:define>
+</ui:composition>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+    template="/WEB-INF/templates/default.xhtml">
+    <ui:define name="content">
+		<h:form id="form">
+			<p:panel header="Lançamentos">
+				<h:panelGroup>
+				<p:panelGrid columns="4">
+					<p:outputLabel for="lstMes" value="Mês"/>
+					<p:selectOneMenu id="lstMes" value="#{lancamentoController.mes}" style="text-align: right">
+						<f:selectItems value="#{lancamentoController.meses}"/>
+					</p:selectOneMenu>
+					
+					<p:outputLabel for="txtAno" value="Ano"/>
+					<p:inputText id="txtAno" value="#{lancamentoController.ano}" size="10"/>
+					
+					
+										
+				</p:panelGrid>
+					<h:commandButton id="btnAdicionar" value="Adicionar" action="#{lancamentoController.adicionar}"/>
+				
+				<p:dataTable value="#{lancamentoController.listaLancamento}" var="lan" emptyMessage="Sem lançamentos"> 
+					<p:column headerText="Dia">
+						<h:outputText value="#{lan.dia}"/>
+					</p:column>
+					<p:column headerText="Descrição">
+						<h:outputText value="#{lan.descricao}"/>
+					</p:column>
+					<p:column headerText="Valor" style="text-align: right">
+						<h:outputText value="#{lan.valor}"/>
+					</p:column>
+					<p:column headerText="PG">
+						<p:selectBooleanCheckbox value="#{lan.pg}"/>
+					</p:column>
+				</p:dataTable>
+				</h:panelGroup>
+			</p:panel>
+		</h:form>
+    </ui:define>
+</ui:composition>
