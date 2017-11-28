@@ -67,6 +67,7 @@ body {
   text-align: center;
   color: #666666;
   font-size: 0.85em;
+  clear: both;
 }
 code {
   font-size: 1.1em;
@@ -112,7 +113,7 @@ label {
   margin-left: 20px;
   margin-right: 0.5em;
   padding-top: 0.2em;
-  text-align: right;
+  text-align: left;
   font-weight: bold;
   color:#363636;
 }
@@ -198,5 +199,5 @@ input {
 
 .simpletablestyle td a:hover {
   color:#3883ce;
-  text-decoration:none; 
+  text-decoration:none;
 }
